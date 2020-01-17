@@ -1,0 +1,29 @@
+[debug] [2020-01-17T16:07:19.666Z] ----------------------------------------------------------------------
+[debug] [2020-01-17T16:07:19.668Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\camir\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-01-17T16:07:19.668Z] CLI Version:   7.12.1
+[debug] [2020-01-17T16:07:19.668Z] Platform:      win32
+[debug] [2020-01-17T16:07:19.668Z] Node Version:  v12.11.1
+[debug] [2020-01-17T16:07:19.669Z] Time:          Fri Jan 17 2020 13:07:19 GMT-0300 (Chile Summer Time)
+[debug] [2020-01-17T16:07:19.669Z] ----------------------------------------------------------------------
+[debug] [2020-01-17T16:07:19.669Z] 
+[debug] [2020-01-17T16:07:19.682Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-17T16:07:19.683Z] > authorizing via signed-in user
+[debug] [2020-01-17T16:07:19.683Z] [iam] checking project boceto-616d7 for permissions ["firebase.projects.get"]
+[debug] [2020-01-17T16:07:19.685Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-01-17T16:07:19.685Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-01-17T16:07:19.820Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-17T16:07:19.845Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/boceto-616d7:testIamPermissions  
+
+[debug] [2020-01-17T16:07:21.062Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-17T16:07:21.065Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/boceto-616d7  
+ 
+[debug] [2020-01-17T16:07:22.301Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\camir\OneDrive\Desktop\redSocial\SCL012-Social-Network'...
+[info] 
+[debug] [2020-01-17T16:07:22.307Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/boceto-616d7/webApps/-/config  
+ 
+[debug] [2020-01-17T16:07:23.575Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: src
+[info] +  hosting: Local server: http://localhost:5000
