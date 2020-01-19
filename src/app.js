@@ -55,5 +55,19 @@ observador();
 function activeUser(){
 
     let contenido = document.getElementById('contenido');
-    contenido.innerHTML= " eres un usuario activo!";
+    contenido.innerHTML = `
+    <p> Bienvenido!</p>
+    <button onclick="cerrar()">Cerrar Sesión</button>
+    `;
+}
+
+function cerrar() {
+    firebase.auth().signOut()
+    .then(function(){
+       console.log('Saliendo...')
+    })
+    .catch(function(error){
+     console.log(error)
+    }) 
+
 }
