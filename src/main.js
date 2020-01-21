@@ -2,7 +2,7 @@
 
 //import { myFunction } from './lib/index.js';
 
-myFunction();
+/*myFunction();
 
 const root = document.getElementById("root");
 const btnLogIn = document.getElementById("login")
@@ -12,3 +12,4 @@ btnRegister.addEventListener('click', () => {
     root.append(``)
 })
 
+*/
