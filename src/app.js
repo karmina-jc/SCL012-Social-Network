@@ -1,4 +1,3 @@
-
 function registrar (){
     let email = document.getElementById('email').value;
     let password= document.getElementById('password').value;
@@ -28,7 +27,6 @@ function ingreso () {
     // ...
   });
 }
-
 function observador() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -51,7 +49,6 @@ function observador() {
   });email-password.html
 }
 observador();
-
 function activeUser(){
 
     let contenido = document.getElementById('contenido');
@@ -60,7 +57,6 @@ function activeUser(){
     <button onclick="cerrar()">Cerrar Sesión</button>
     `;
 }
-
 function cerrar() {
     firebase.auth().signOut()
     .then(function(){
@@ -71,3 +67,20 @@ function cerrar() {
     }) 
 
 }
+
+//para escribir post
+function posting(){
+  let db = firebase.firestore();
+  db.collection("posteos").add({
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  })
+  .then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+  })
+  .catch(function(error) {
+    console.error("Error adding document: ", error);
+  });
+};
+
