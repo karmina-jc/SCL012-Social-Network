@@ -9,13 +9,13 @@
 </head>
 <body>
 <div id="root">
-  <header>
+  <header class="header">
     <h1><img src="img/logo-boceto.png" alt=""></h1>
   </header>
   <main>    
     <div class="autentication">
-      <input type="text" placeholder="Ingresa tu Correo">
-      <input type="password" placeholder="Ingresa tu Contraseña">
+      <input class="inputText" type="text" placeholder="Ingresa tu Correo">
+      <input class="inputText" type="password" placeholder="Ingresa tu Contraseña">
       <button id="login" class="btn">Ingresar</button>
     </div>
     <div class="singIn">
@@ -28,22 +28,22 @@
 <footer>
   
 </footer>
-  <title>Red Socugugi</title>
+<!--<title>Red Socugugi</title>-->
 
 
- <!--Apartado Firebase-->
+<!--Apartado Firebase-->
   <script type="module" src="main.js"></script>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<!--The core Firebase JS SDK is always required and must be listed first-->
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+<!--TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
 
 <script >
   // Your web app's Firebase configuration
-  var firebaseConfig = {
+  let firebaseConfig = {
     apiKey: "AIzaSyClC9vJnjiJDhjl_t2blcd0lbtYt-AcG3s",
     authDomain: "boceto-616d7.firebaseapp.com",
     databaseURL: "https://boceto-616d7.firebaseio.com",
@@ -58,21 +58,5 @@
   firebase.analytics();
 </script> 
 <script src="app.js"></script> 
-  
-</head>
-<body>
-  <h4>Registro de Usuarios</h4>
-  <input id="email" type="email" placeholder="ingrese su email">
-  <input id="password" type="password" placeholder="registre su contraseña">
-  <button onclick="registrar()">Enviar</button>
-
-  <h4>Ingreso de Usuarios</h4>
-  <input id="email2" type="email" placeholder="ingrese su email">
-  <input id="password2" type="password" placeholder="registre su contraseña">
-  <button onclick="ingreso()">Acceder</button>
-
-  <div id="contenido">
-  </div>
-
 </body>
 </html>
