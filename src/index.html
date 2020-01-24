@@ -27,6 +27,20 @@
  
 <footer>
 </footer>
+  
+  <div class="container">
+    <h1> agregar Usuarios </h1>
+    <input type="text" id="nombre" placeholder="nombre" class="form">
+    <input type="text" id="seudonimo" placeholder="seudonimo" class="form">
+    <input type="text" id="contrasena" placeholder="contrasena" class="form">
+    <button class="btn" id="btn" onclick="guardar()">Guardar</button>
+  </div>
+
+  <div id="postingFunc">
+    <input type="text"  id="posteo" placeholder="Qué compartiras hoy?">
+    <button class="btn" id="saveButton" onclick="post()">Post</button>
+    <p id="tabla"></p>
+  </div>
 
 
   <h4>Registro de Usuarios</h4>
@@ -39,11 +53,10 @@
   <input id="password2" type="password" placeholder="registre su contraseña">
   <button onclick="ingreso()">Acceder</button>
   
-  <button onclick="posting()">postear</button>
-
-
   <div id="contenido">
-  </div>
+  </div> 
+
+  <button onclick="googleSignIn()"> Google SignIn</button>
   
  <!--Apartado Firebase-->
  <script type="module" src="main.js"></script>
