@@ -70,7 +70,8 @@ function login() {
             <li id="logout"><a href="#logout">Cerrar sesión</a></li>      
           </ul>
          </nav>
-        </header><section class="businessCard">
+        </header>
+        <section class="businessCard">
         <img src="img/photo-user-tester.png">
         <div class="idUser">
           <h3>Nombre Usuario / Seudónimo</h3>
