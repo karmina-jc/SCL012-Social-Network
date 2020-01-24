@@ -5,12 +5,13 @@
 //myFunction();
 
 const root = document.getElementById("root");
-const btnLogIn = document.getElementById("login")
-const btnRegister = document.getElementById("register")
+const initialHeader = document.getElementById("initialHeader");
+const btnLogIn = document.getElementById("login");
+const btnRegister = document.getElementById("register");
 
 btnRegister.addEventListener('click', () => {
     root.innerHTML='';
-    root.innerHTML = 
+    return root.innerHTML = 
         `<header class="header">
             <h1><img src="img/logo-boceto.png" alt=""></h1>
          </header>
@@ -27,24 +28,108 @@ btnRegister.addEventListener('click', () => {
         </main>`
 })
 
-btnLogIn.addEventListener('click', () => {
+btnLogIn.addEventListener('click',login)
+    
+    
+function login() {
+    window.location.hash = '#home'
     root.innerHTML='';
-    root.innerHTML=
+    return root.innerHTML=
     `<header class="homeLogo">
     <h1><img src="img/logo-boceto.png" alt=""></h1>
      <nav class="navBar">
       <ul>
-        <li id="home"><a href="">Inicio</a></li>
-        <li id="myWorks"><a href="">Mis Trabajos</a></li>
-        <li id="favorite"><a href="">Favoritos</a></li>
-        <li id="search"><a href="">Buscar</a></li>
-        <li id="logout"><a href="">Cerrar sesión</a></li>       
+        <li id="home"><a href="#home">Inicio</a></li>
+        <li id="myWorks"><a href="#myWorks">Mis Trabajos</a></li>
+        <li id="favorite"><a href="#favorite">Favoritos</a></li>
+        <li id="search"><a href="#search">Buscar</a></li>
+        <li id="logout"><a href="#logout">Cerrar sesión</a></li>       
       </ul>
      </nav>
     </header>
-    <main> 
+    <main id="fullMain"> 
         
        
-    </main>`
+    </main>
+    <button id="addPost" class="btnAdd"><a href="#addPost">°</a></button>`
+  }
 
-})
+  window.addEventListener('hashchange', () => {
+        console.log(window.location.hash)
+    if (window.location.hash === "#myWorks"){
+        root.innerHTML='';
+        return root.innerHTML=
+        `<header class="homeLogo">
+        <h1><img src="img/logo-boceto.png" alt=""></h1>
+         <nav class="navBar">
+          <ul>
+            <li id="home"><a href="#home">Inicio</a></li>
+            <li id="myWorks"><a href="#myWorks">Mis Trabajos</a></li>
+            <li id="favorite"><a href="#favorite">Favoritos</a></li>
+            <li id="search"><a href="#search">Buscar</a></li>
+            <li id="logout"><a href="#logout">Cerrar sesión</a></li>      
+          </ul>
+         </nav>
+        </header><section class="businessCard">
+        <img src="img/photo-user-tester.png">
+        <div class="idUser">
+          <h3>Nombre Usuario / Seudónimo</h3>
+          <h4>Ilustrador</h4>
+        </div>
+        <div class="myPages">      
+          <p>Mi bihance</p>
+          <p>Mi instagram</p>
+          <p>Mi linkedin</p>
+        </div>
+        </section>
+        <main>
+        </main>
+        <button id="addPost" class="btnAdd"><a href="#addPost">°</a></button>`
+       
+    } else if (window.location.hash === "#favorite") {
+                    
+    } else if (window.location.hash === "#home"){
+        root.innerHTML='';
+        return root.innerHTML=
+        `<header class="homeLogo">
+        <h1><img src="img/logo-boceto.png" alt=""></h1>
+        <nav class="navBar">
+        <ul>
+          <li id="home"><a href="#home">Inicio</a></li>
+          <li id="myWorks"><a href="#myWorks">Mis Trabajos</a></li>
+          <li id="favorite"><a href="#favorite">Favoritos</a></li>
+          <li id="search"><a href="#search">Buscar</a></li>
+          <li id="logout"><a href="#logout">Cerrar sesión</a></li>       
+        </ul>
+        </nav>
+        </header>
+        <main>      
+       
+        </main>
+        <button id="addPost" class="btnAdd"><a href="#addPost">°</a></button>`
+
+    } else if (window.location.hash === "#addPost"){
+      root.innerHTML='';
+      return root.innerHTML= 
+      `<header class="homeLogo">
+        <h1><img src="img/logo-boceto.png" alt=""></h1>
+        <nav class="navBar">
+        <ul>
+          <li id="home"><a href="#home">Inicio</a></li>
+          <li id="myWorks"><a href="#myWorks">Mis Trabajos</a></li>
+          <li id="favorite"><a href="#favorite">Favoritos</a></li>
+          <li id="search"><a href="#search">Buscar</a></li>
+          <li id="logout"><a href="#logout">Cerrar sesión</a></li>       
+        </ul>
+        </nav>
+      </header>
+      <section id="allPost" class="post">
+      <textarea class="textPost" id="basePost" cols="30" rows="10"></textarea>
+      <div class="actionButtons">
+        <input type="file" class="fileAdd">
+        <button id="newPost" class="btn">Publicar</button>    
+      </div>
+      </section>`
+    }
+
+  });
