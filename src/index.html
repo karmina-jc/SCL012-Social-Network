@@ -28,7 +28,6 @@
 <footer>
 </footer>
 
-
   <h4>Registro de Usuarios</h4>
   <input id="email" type="email" placeholder="ingrese su email">
   <input id="password" type="password" placeholder="registre su contraseña">
@@ -39,39 +38,25 @@
   <input id="password2" type="password" placeholder="registre su contraseña">
   <button onclick="ingreso()">Acceder</button>
   
-  <button onclick="posting()">postear</button>
-
-
+  <input id="uploadImage" type="file" accept="image/x-png,image/gif,image/jpeg">
+  <button id="postimg" onclick="upImg()">postear imagen</button>
+  <input id="texto" type="text"> <button id="postBtn" onclick="posting()">postear texto</button>
+<div id="paraPost"></div>
   <div id="contenido">
   </div>
   
  <!--Apartado Firebase-->
- <script type="module" src="main.js"></script>
+ 
  <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-storage.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
     https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
-
-<script >
- // Your web app's Firebase configuration
- let firebaseConfig = {
-   apiKey: "AIzaSyClC9vJnjiJDhjl_t2blcd0lbtYt-AcG3s",
-   authDomain: "boceto-616d7.firebaseapp.com",
-   databaseURL: "https://boceto-616d7.firebaseio.com",
-   projectId: "boceto-616d7",
-   storageBucket: "boceto-616d7.appspot.com",
-   messagingSenderId: "1005115180743",
-   appId: "1:1005115180743:web:36de90450c70568cf960e2",
-   measurementId: "G-NQNBEWSBKB"
- };
- // Initialize Firebase
- firebase.initializeApp(firebaseConfig);
- firebase.analytics();
-</script> 
 <script src="app.js"></script> 
 <script type="module" src="main.js"></script>
 </body>

@@ -1,17 +1,16 @@
 // Este es el punto de entrada de tu aplicacion
 
-//import { myFunction } from './lib/index.js';
+// import { myFunction } from './lib/index.js';
 
-//myFunction();
+// myFunction();
 
-const root = document.getElementById("root");
-const btnLogIn = document.getElementById("login")
-const btnRegister = document.getElementById("register")
+const root = document.getElementById('root');
+const btnLogIn = document.getElementById('login');
+const btnRegister = document.getElementById('register');
 
 btnRegister.addEventListener('click', () => {
-    root.innerHTML='';
-    root.innerHTML = 
-        `<header class="header">
+  root.innerHTML = '';
+  root.innerHTML = `<header class="header">
             <h1><img src="img/logo-boceto.png" alt=""></h1>
          </header>
         <main> 
@@ -24,13 +23,12 @@ btnRegister.addEventListener('click', () => {
             <input class="inputText" type="password" placeholder="Confirma contraseña">
             <button id="login" class="btn">Registrate</button>
         </form>    
-        </main>`
-})
+        </main>`;
+});
 
 btnLogIn.addEventListener('click', () => {
-    root.innerHTML='';
-    root.innerHTML=
-    `<header class="homeLogo">
+  root.innerHTML = '';
+  root.innerHTML = `<header class="homeLogo">
     <h1><img src="img/logo-boceto.png" alt=""></h1>
      <nav class="navBar">
       <ul>
@@ -44,7 +42,5 @@ btnLogIn.addEventListener('click', () => {
     </header>
     <main> 
         
-       
-    </main>`
-
-})
+    </main>`;
+});
