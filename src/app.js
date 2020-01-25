@@ -85,38 +85,38 @@ function cerrar() {
      console.log(error)
     }); 
 }
-
-// función para subir imagen 
+// función para subir imagen
 const imgFile = document.getElementById('uploadImage'); // guardando botón para subir archivos
-imgFile.addEventListener('change', function(e) { // escuchando la subida de un archivo
-console.log('foto adjunta');
-let file = e.target.files[0];
-let storageRef = firebase.storage().ref('images/'+ file.name); // referencia a directorio raíz en storage de firebase
+const postimage = document.getElementById('postimg'); // guardando botón para confirmar la subida de imagen
+postimage.disabled = true; // dejando inhabilitado el botón de confirmación
+imgFile.addEventListener('change', function (e) { // escuchando la subida de un archivo
+  postimage.disabled = false; // habilitando botón de confirmación
+  postimage.addEventListener('click', () => {
+    const file = e.target.files[0]; // capturando el archivo subido
+    let storageRef = firebase.storage().ref('images/'+ file.name); // referencia a directorio raíz en firestore
 storageRef.put(file); // subiendo el archivo a firestore
+  })
 });
 
-const postimage = document.getElementById('postimg')// llamando botón para confirmar la subida de imagen
-//function display para habilitar y deshabilitar el boton
-
 // Función para postear
-function posting(){
-  db.collection("postconuid").add({   //creando una coleción para agregar los datos a firebase
+function posting() {
+  db.collection('postconuid').add({ // creando una coleción para agregar los datos a firebase
     email: firebase.auth().currentUser.email,
     uid: firebase.auth().currentUser.uid,
     post: document.getElementById('texto').value
   })
-  .then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id); //console.log para confirmar en consola
-  })
-  .catch(function(error) {
-    console.error("Error adding document: ", error);
-  });
-};
-//llamando al div donde se imprimirán los post
-let divPost= document.getElementById('paraPost');
-//escuchando colección en firebase para ir imprimiendo
+    .then(function (docRef) {
+      console.log('Document written with ID: ', docRef.id); // console.log para confirmar en consola
+    })
+    .catch(function(error) {
+      console.error("Error adding document: ", error);
+    });
+}
+// llamando al div donde se imprimirán los post
+const divPost = document.getElementById('paraPost');
+// escuchando colección en firebase para ir imprimiendo
 db.collection('postconuid').onSnapshot((querySnapshot) => {
-  //vaciando div para que no se repitan los post
+  // vaciando div para que no se repitan los post
   divPost.innerHTML = '';
   querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data().post}`);
