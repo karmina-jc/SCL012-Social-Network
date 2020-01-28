@@ -1,29 +1,25 @@
-[debug] [2020-01-21T12:59:23.360Z] ----------------------------------------------------------------------
-[debug] [2020-01-21T12:59:23.371Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DANIELA ALZAMORA\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
-[debug] [2020-01-21T12:59:23.372Z] CLI Version:   7.12.1
-[debug] [2020-01-21T12:59:23.372Z] Platform:      win32
-[debug] [2020-01-21T12:59:23.372Z] Node Version:  v12.14.1
-[debug] [2020-01-21T12:59:23.376Z] Time:          Tue Jan 21 2020 09:59:23 GMT-0300 (GMT-03:00)
-[debug] [2020-01-21T12:59:23.377Z] ----------------------------------------------------------------------
-[debug] [2020-01-21T12:59:23.377Z] 
-[debug] [2020-01-21T12:59:23.522Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-01-21T12:59:23.526Z] > authorizing via signed-in user
-[debug] [2020-01-21T12:59:23.529Z] [iam] checking project boceto-616d7 for permissions ["firebase.projects.get"]
-[debug] [2020-01-21T12:59:23.538Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2020-01-21T12:59:23.540Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- <request body omitted>
-[debug] [2020-01-21T12:59:24.186Z] <<< HTTP RESPONSE 200
-[debug] [2020-01-21T12:59:24.288Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/boceto-616d7:testIamPermissions  
+[debug] [2020-01-27T19:31:05.405Z] ----------------------------------------------------------------------
+[debug] [2020-01-27T19:31:05.412Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DANIELA ALZAMORA\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-01-27T19:31:05.412Z] CLI Version:   7.12.1
+[debug] [2020-01-27T19:31:05.412Z] Platform:      win32
+[debug] [2020-01-27T19:31:05.413Z] Node Version:  v12.14.1
+[debug] [2020-01-27T19:31:05.416Z] Time:          Mon Jan 27 2020 16:31:05 GMT-0300 (GMT-03:00)
+[debug] [2020-01-27T19:31:05.416Z] ----------------------------------------------------------------------
+[debug] [2020-01-27T19:31:05.417Z] 
+[debug] [2020-01-27T19:31:05.452Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-27T19:31:05.454Z] > authorizing via signed-in user
+[debug] [2020-01-27T19:31:05.455Z] [iam] checking project boceto-616d7 for permissions ["firebase.projects.get"]
+[debug] [2020-01-27T19:31:05.460Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/boceto-616d7:testIamPermissions  
 
-[debug] [2020-01-21T12:59:25.622Z] <<< HTTP RESPONSE 200
-[debug] [2020-01-21T12:59:25.626Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/boceto-616d7  
+[debug] [2020-01-27T19:31:06.813Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-27T19:31:06.819Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/boceto-616d7  
  
-[debug] [2020-01-21T12:59:25.988Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-27T19:31:07.310Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from 'C:\Users\DANIELA ALZAMORA\Desktop\boceto\SCL012-Social-Network'...
 [info] 
-[debug] [2020-01-21T12:59:26.002Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/boceto-616d7/webApps/-/config  
+[debug] [2020-01-27T19:31:07.320Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/boceto-616d7/webApps/-/config  
  
-[debug] [2020-01-21T12:59:27.515Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-27T19:31:08.642Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: src
 [info] +  hosting: Local server: http://localhost:5000

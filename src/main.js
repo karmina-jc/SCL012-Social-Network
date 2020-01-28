@@ -1,8 +1,8 @@
 // Este es el punto de entrada de tu aplicacion
 
-//import { myFunction } from './lib/index.js';
+// import { myFunction } from './lib/index.js';
 
-//myFunction();
+// myFunction();
 
 const root = document.getElementById("root");
 const initialHeader = document.getElementById("initialHeader");
@@ -25,8 +25,8 @@ btnRegister.addEventListener('click', () => {
             <input class="inputText" type="password" placeholder="Confirma contraseña">
             <button id="login" class="btn">Registrate</button>
         </form>    
-        </main>`
-})
+        </main>`;
+});
 
 btnLogIn.addEventListener('click',login)
     
