@@ -1,3 +1,17 @@
+esquema para read me:
+-icono de boceto
+-link de deploy
+-preambulo: hablar de la problematica 
+-objetivos aplicación
+-usuarios objetivo
+-encuesta
+-historia de usuario
+-prototipo
+-test de usabilidad
+-decisiones de estilo de aplicación: paleta de colores y tipografía
+-proyecciones?
+-herramientas de desarrollo (js, css, etc)
+-planificación: trello
 # Creando una Red Social
 
 ## Índice
