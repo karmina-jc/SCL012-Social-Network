@@ -1,9 +1,52 @@
-export function registrar() {
-  const email = document.getElementById('emailRegister').value;
-  const password = document.getElementById('passwordRegister').value;
 
+export const observer = () => {
+  firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        window.location.hash = '#home'                                      
+      } else {
+        alert("Usuario Invalido")
+      }
+  }); email - password.html;    
+};
 
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch((error) => {
+// función de ingreso de sesión
+export const emailLogin = (email, password) => {
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(()=>{
+    console.log('UsuarioActivo '+ email);
+    window.location.hash = '#home'
+  })
+  .catch((error) => {
+  // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
+    alert('Usuario no registrado')
+  })
+};
+
+export const googleSignIn = () => {
+  const baseProvider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(baseProvider)
+  .then((result) => {
+    console.log(result);
+    console.log('Success Google acount Linked');
+    window.location.hash = '#home';
+
+  }).catch((err) => {
+    console.log(err);
+    console.log('Failed to do');
+    alert("Error al ingresar")
+  });
+}
+
+export function register(emailR, passR) {
+  firebase.auth().createUserWithEmailAndPassword(emailR, passR)
+  .then (()=>{
+    console.log('Usuario registrado exitosamente')
+  })
+  .catch((error) => {
   // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -13,57 +56,8 @@ export function registrar() {
   email - password.html;
 }
 
-// función de ingreso de sesión
-
-export function ingreso() {
-  const email2 = document.getElementById('emailLogIn').value;
-  const password2 = document.getElementById('passwordLogIn').value;
-
-  firebase.auth().signInWithEmailAndPassword(email2, password2)
-  .catch((error) => {
-  // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorMessage);
-  })
-};
-
-export function googleSignIn(){
-  const baseProvider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(baseProvider)
-  .then((result) => {
-    console.log(result);
-    console.log('Success Google acount Linked');
-    window.location.hash = '#home';
-    root.innerHTML = '';
-    root.innerHTML = `<header class="homeLogo">
-    <h1><img src="img/logo-boceto.png" alt=""></h1>
-    <nav class="navBar">
-    <ul>
-    <li id="home"><a href="#home">Inicio</a></li>
-    <li id="myWorks"><a href="#myWorks">Mis Trabajos</a></li>
-    <li id="favorite"><a href="#favorite">Favoritos</a></li>
-    <li id="search"><a href="#search">Buscar</a></li>
-    <li id="logout"><a href="#logout">Cerrar sesión</a></li>
-    <main>
-    </ul>
-    </nav>
-    </header>
-    <main id="fullMain"> 
-    
-   
-    </main>
-    <button id="addPost" class="btnAdd"><a href="#addPost">°</a></button>`
-  }).catch((err) => {
-    console.log(err);
-    console.log('Failed to do');
-    alert("Error al ingresar")
-  });
-}
-
 // funcionalidad de Cerrar Sesión
-export function cerrar() {
+function cerrar() {
   console.log('hola');
   firebase.auth().signOut()
     .then(() => {
@@ -73,12 +67,14 @@ export function cerrar() {
       console.log(error);
     });
 }
+
+
 // Función para subir imagen
 
 
 const db = firebase.firestore();
 // funcionalidad de posteo
-export function savePost() {
+const savePost = (textValue,) => {
   const posteo = document.getElementById('addPost').value;
   db.collection('newPost').add({
     correo: firebase.auth().currentUser.email,
@@ -96,35 +92,36 @@ export function savePost() {
 
 
 let btnUploadImg = document.getElementById('uploadImage'); 
+const postimage = document.getElementById("uploadImage")
+
 let storageRef = firebase.storage().ref();
 let imagesFBRef = firebase.database().ref('ImagesFB');
-const postimage = document.getElementById('postimg')
 
-btnUploadImg.addEventListener('change', confirmUpload, false);
+postimage.addEventListener('change',confirmUpload)
 // Imprimiendo imagen guardada en firebase
 function showImgFromFB(){
   imagesFBRef.on('value', function(snapshot){
     let data = snapshot.val();
     let result = '';
     for(let key in data){
-      result += `<img src="` + data[key].url + `"/>`;
+      result += `<img class="image" src="` + data[key].url + `"/>`;
     }
-    document.getElementById('forPosting').innerHTML = result;
+    document.getElementById('paraimg').innerHTML = result;
   })
 }
 // Subiendo imagen a firebase storage
 function confirmUpload () {
-  postimage.addEventListener('click', () => {
-  postimage.disabled = false;
   const imgFile = btnUploadImg.files[0];
   const uploadTask = storageRef.child('Images/' + imgFile.name).put(imgFile);
   
   uploadTask.on('state_changed',
   function(snapshot) {
-}, function(error) {
- alert('error');
- // Obteniendo URL de imagen
-}, function() {
+  }, 
+  function(error) {
+  alert('error');
+  
+  // Obteniendo URL de imagen
+  }, function() {
   uploadTask.snapshot.ref.getDownloadURL()
   .then(function(downloadURL){
     console.log(downloadURL)
@@ -132,7 +129,8 @@ function confirmUpload () {
     showImgFromFB();
   })
 })
-})};
+};
+
 // Creando nodo en firebase 
 function createNodeInFB(imgName, downloadURL){
   imagesFBRef.push({nombre: imgName, url: downloadURL})

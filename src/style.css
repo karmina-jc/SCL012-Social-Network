@@ -6,7 +6,7 @@
 body {
     background-color: rgb(40, 40, 40);
 }
-#full{
+#root{
     background-image: url("img/sketchbook.png");
     background-repeat: no-repeat;
     max-width: 900px;
@@ -181,6 +181,10 @@ main{
 }
 .actionButtons{
     margin: auto;
+}
+.image{
+    max-width: 300px;
+    height: auto;
 }
 footer{
     height: 50px;
