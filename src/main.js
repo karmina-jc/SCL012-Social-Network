@@ -115,8 +115,6 @@ const sectionAddPost = () => {
 
   })
 
-
-
 }
 const db = firebase.firestore();
 const showUpPost = () => {
@@ -128,7 +126,7 @@ const showUpPost = () => {
       homeMain.innerHTML +=
       `<div class="postDiv">
       <div class="postArea"> ${doc.data().post}</div>
-      <div class="imges"><img src=${doc.data().img}></div>
+      <div> <img class="images" src=${doc.data().img}></div>
       <button class="btn">Comentarios</button>
       </div>
       <div id="oldComents" class="commentDiv"></div>
