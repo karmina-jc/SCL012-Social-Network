@@ -174,7 +174,7 @@ main{
     border: solid 2px #4d1e03;
     border-radius: 5px;
 }
-.textPost{
+.basePost{
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -182,7 +182,7 @@ main{
 .actionButtons{
     margin: auto;
 }
-.image{
+.imges{
     max-width: 300px;
     height: auto;
 }
