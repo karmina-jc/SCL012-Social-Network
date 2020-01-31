@@ -57,19 +57,64 @@ const homeView = () =>{
   root.innerHTML = '';
   root.innerHTML = `<header class="homeLogo">
     <h1><img src="img/logo-boceto.png" alt=""></h1>
-    <nav class="navBar">
-     <ul>
-        <li id="home"><a href="#home">Inicio</a></li>
-        <li id="myWorks"><a href="#myWorks">Mis Trabajos</a></li>
-        <li id="favorite"><a href="#favorite">Favoritos</a></li>
-        <li id="search"><a href="#search">Buscar</a></li>
-        <li id="logout"><a href="#logout">Cerrar sesión</a></li>
-     </ul>
-    </nav>
     </header>
-    <section id="userPerfil">
-    </section>
-    <main id="homeMain">
+    <nav class="navBar">
+        <ul id="mobileV">
+          <li id="home">
+            <a href="#home">
+              <img src="img/homeIcon.png" alt="home Icon">
+            </a>
+          </li>
+          <li id="myWorks">
+            <a href="#myWorks"> 
+              <img src="img/portfolioIcon.png" alt="portafolio Icon">
+            </a>
+          </li>
+          <li id="favorite">
+            <a href="#favorite">
+              <img src="img/heart.png" alt="Black Heart Icon">
+            </a>
+          </li>
+          <li id="search">
+            <a href="#search">
+              <img src="img/lupaicon.png" alt="search Icon">
+            </a>
+          </li>
+          <li id="logout">
+            <a href="#logout">
+              <img src="img/logout.png" alt="search Icon">
+            </a>
+          </li>
+        </ul>
+        <ul id="topV">
+         <li id="home">
+            <a href="#home">
+              Inicio
+            </a>
+          </li>
+         <li id="myWorks">
+            <a href="#myWorks">
+              Mis Trabajos
+            </a>
+          </li>
+         <li id="favorite">
+            <a href="#favorite">
+              Favoritos
+            </a>
+          </li>
+         <li id="search">
+            <a href="#search">
+              Buscar
+            </a>
+          </li>
+         <li id="logout">
+            <a href="#logout">
+              Cerrar sesión
+            </a>
+          </li>
+       </ul>
+      </nav>
+    <main id="fullMain">     
     </main>
     <section id="newPostSection">
     </section>
