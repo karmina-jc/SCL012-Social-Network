@@ -71,7 +71,7 @@ function cerrar() {
 
 
 const db = firebase.firestore();
-// funcionalidad de posteo
+
 // llamando al div donde se imprimirán los post
 const divPost = document.getElementById('forPosting');
 // escuchando colección en firebase para ir imprimiendo

@@ -15,7 +15,7 @@ const main = document.getElementById('fullMain');
 const btnLogIn = document.getElementById('login');
 const btnGoogle = document.getElementById('idGoogle');
 const btnRegister = document.getElementById('register');
-const sectionPerfil = document.getElementById('userPerfil');
+
 
 btnLogIn.addEventListener('click', () => {
   const userID = document.getElementById("emailLogIn").value;
@@ -114,7 +114,10 @@ const homeView = () =>{
           </li>
        </ul>
       </nav>
-    <main id="fullMain">     
+    <section id="userPerfil">
+    </section>
+    <main id="homeMain">
+         
     </main>
     <section id="newPostSection">
     </section>
@@ -122,6 +125,7 @@ const homeView = () =>{
 }
 
 const myWorkasView = () => {
+  const sectionPerfil = document.getElementById('userPerfil');
   let newPostSection = document.getElementById('newPostSection');
   newPostSection.innerHTML='';
   sectionPerfil.innerHTML = 
@@ -168,6 +172,7 @@ const showUpPost = () => {
   homeMain.innerHTML = '';
   querySnapshot.forEach((doc) => {
       console.log(doc.data());
+      console.log(doc.id)
       homeMain.innerHTML +=
       `<div class="postDiv">
       <div class="postArea"> ${doc.data().post}</div>
