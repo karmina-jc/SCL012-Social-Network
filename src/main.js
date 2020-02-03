@@ -1,7 +1,7 @@
 // Este es el punto de entrada de tu aplicacion
 
 import {
-emailLogin, googleSignIn, register, observer, uploadImgAndText, 
+emailLogin, googleSignIn, register, uploadImgAndText, 
 } from './app.js';
 
 window.onload = initialHash
