@@ -32,6 +32,16 @@ body {
     display: flex;
     flex-direction: column;
 }
+h1 img{
+    padding-top: 20px;
+    width: 450px;
+}
+nav ul li img{
+    display: block;
+    display: flex;
+    max-width: 25px;
+    height: auto;
+  }
 .homeLogo img{
     margin-top: 50px;
     padding-bottom: 10px;
@@ -53,20 +63,18 @@ h1 img{
     padding: 0;
     margin: 0;
 }
-nav ul li:hover{
-    background-color: rgb(247, 216, 154);;
-}
 nav li{
     text-align: center;
     padding: 20px;
     flex-grow: 1;
-}    
-    
+}   
+nav ul li:hover{
+    background-color: rgb(247, 216, 154);
+}   
 nav li a{
     text-decoration: none;
         
 }
-
 main{
     width: 95%;
     margin: auto; 
@@ -227,7 +235,6 @@ display: none;
         max-width: 60%;
         float: center;
     }
-
     .homeLogo img{
         margin-top: 30px;
         padding: 10px;
@@ -316,7 +323,6 @@ display: none;
         display: flex;
         justify-content: center;
         flex-direction: column;
-
     }
 
     #mobileV{
@@ -334,5 +340,4 @@ display: none;
     #topV{
         display: none;
     }
-
 }

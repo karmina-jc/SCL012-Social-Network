@@ -1,14 +1,14 @@
 // Este es el punto de entrada de tu aplicacion
 
 import {
-  emailLogin, googleSignIn, register, observer, uploadImgAndText,
+  emailLogin, googleSignIn, register, uploadImgAndText,
 } from './app.js';
-
-window.onload = initialHash;
 
 function initialHash() {
   window.location.hash = '#login';
 }
+
+window.onload = initialHash;
 
 const root = document.getElementById('root');
 const main = document.getElementById('fullMain');
@@ -16,12 +16,10 @@ const btnLogIn = document.getElementById('login');
 const btnGoogle = document.getElementById('idGoogle');
 const btnRegister = document.getElementById('register');
 
-
 btnLogIn.addEventListener('click', () => {
   const userID = document.getElementById('emailLogIn').value;
   const userPass = document.getElementById('passwordLogIn').value;
   emailLogin(userID, userPass);
-
 });
 
 btnGoogle.addEventListener('click', googleSignIn);
@@ -33,6 +31,7 @@ btnRegister.addEventListener('click', () => {
 const registerView = () => {
   main.innerHTML = '';
   main.innerHTML = `<form class="registerUser">
+      <div id = "errorDiv"></div>
       <input id=" nombreyApellido"class="inputText" type="text" placeholder="Nombre y apellido">
       <input id="pseudonimo"class="inputText" type="text" placeholder="Pseudonimo">
       <input id="emailRegister" class="inputText" type="email" placeholder="Correo electronico">
@@ -40,14 +39,13 @@ const registerView = () => {
       <input id="passwordRegister2"class="inputText" type="password" placeholder="Confirma contraseña">
       <button id="signIn" class="btn">Registrate</button>
       </form>`;
-
   const btnSignIn = document.getElementById('signIn');
 
   btnSignIn.addEventListener('click', () => {
     const emailRegister = document.getElementById('emailRegister').value;
-    console.log(emailRegister);
+    // console.log(emailRegister)
     const passRegister = document.getElementById('passwordRegister').value;
-    console.log(passRegister);
+    // console.log(passRegister)
     register(emailRegister, passRegister);
   });
 };
@@ -113,12 +111,12 @@ const homeView = () => {
           </li>
        </ul>
       </nav>
-      <section id="userPerfil">
+      <section id='userPerfil'>
+      </section>
+    <main id="homeMain">     
+    </main>
+    <section id="newPostSection">
     </section>
-    <main id="homeMain">  
-    </main>  
-    <section id="newPostSection"> 
-    </section>  
     <button id="addPost" class="btnAdd"><a href="#addPost">°</a></button>`;
 };
 
@@ -140,16 +138,14 @@ const myWorkasView = () => {
     </div>`;
 };
 const sectionAddPost = () => {
-  let newPostSection = document.getElementById('newPostSection');
-  newPostSection.innerHTML =
-  `<div id="allPost" class="post">
+  const newPostSection = document.getElementById('newPostSection');
+  newPostSection.innerHTML = `<div id="allPost" class="post">
   <textarea class="basePost" id="textPost" cols="30" rows="10"></textarea>
   <div class="actionButtons">
     <input id="imgForUp" type="file" class="fileAdd">
     <button id="newPost" class="btn">Publicar</button>    
   </div>
   </div>`;
-
   const btnFile = document.getElementById('imgForUp');
   const btnUpPost = document.getElementById('newPost');
 
@@ -157,19 +153,18 @@ const sectionAddPost = () => {
     const textValue = document.getElementById('textPost').value;
     const imgFile = btnFile.files[0];
     uploadImgAndText(imgFile, textValue);
-
   });
-
 };
 const db = firebase.firestore();
 const showUpPost = () => {
   const homeMain = document.getElementById('homeMain');
-  db.collection('Post').onSnapshot((querySnapshot) => {
+  const postInOrder = db.collection('Post').orderBy('postTime', 'desc');
+  postInOrder.onSnapshot((querySnapshot) => {
     homeMain.innerHTML = '';
-    querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-      homeMain.innerHTML +=
-      `<div class="postDiv">
+    const postInOrder = db.collection('Post').orderBy('postTime', 'desc');
+    postInOrder.onSnapshot((querySnapshot) => {
+      // console.log(doc.data());
+      homeMain.innerHTML += `<div class="postDiv">
       <div class="postArea"> ${doc.data().post}</div>
       <div> <img class="images" src=${doc.data().img}></div>
       <button class="btn">Comentarios</button>
@@ -177,15 +172,15 @@ const showUpPost = () => {
       <div id="oldComents" class="commentDiv"></div>
       <div id="newComents" class="commentDiv"></div>`;
       // función para mostrar caja de comentarios
-      function showComment() {
-        console.log('mostrar');
+      /* function showComment() {
+       console.log('mostrar');
       }
-      const coment = Array.from(document.querySelectorAll('.commentDiv')).forEach((element) => {
-        element.addEventListener('click', () => {
-          console.log(element);
-          divPost.innerHTML = '';
-        });
-      });
+       let coment = Array.from(document.querySelectorAll('.commentDiv')).forEach((element) => {
+       element.addEventListener('click', () => {
+       console.log(element);
+       divPost.innerHTML = '';
+       });
+       }); */
     });
   });
 };
@@ -194,17 +189,12 @@ window.addEventListener('hashchange', () => {
   if (window.location.hash === '#home') {
     homeView();
     showUpPost();
-    
   } if (window.location.hash === '#register') {
     registerView();
-    
   } if (window.location.hash === '#addPost') {
     sectionAddPost();
-    
   } if (window.location.hash === '#myWorks') {
     myWorkasView();
-
-  } if (window.location.hash === '#favorite') {
-
-  }
+  } // if (window.location.hash === '#favorite') {
+  // }
 });
