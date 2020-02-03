@@ -58,7 +58,7 @@ const homeView = () =>{
   root.innerHTML = `<header class="homeLogo">
     <h1><img src="img/logo-boceto.png" alt=""></h1>
     </header>
-    <nav class="navBar">
+     <nav class="navBar">
         <ul id="mobileV">
           <li id="home">
             <a href="#home">
@@ -113,11 +113,10 @@ const homeView = () =>{
             </a>
           </li>
        </ul>
-      </nav>
+    </nav>
     <section id="userPerfil">
     </section>
     <main id="homeMain">
-         
     </main>
     <section id="newPostSection">
     </section>
