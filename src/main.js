@@ -1,13 +1,13 @@
 // Este es el punto de entrada de tu aplicacion
 
 import {
-emailLogin, googleSignIn, register, observer, uploadImgAndText, 
+  emailLogin, googleSignIn, register, observer, uploadImgAndText,
 } from './app.js';
 
-window.onload = initialHash
+window.onload = initialHash;
 
 function initialHash() {
-  window.location.hash = '#login'
+  window.location.hash = '#login';
 }
 
 const root = document.getElementById('root');
@@ -15,20 +15,20 @@ const main = document.getElementById('fullMain');
 const btnLogIn = document.getElementById('login');
 const btnGoogle = document.getElementById('idGoogle');
 const btnRegister = document.getElementById('register');
-const sectionPerfil = document.getElementById('userPerfil');
+
 
 btnLogIn.addEventListener('click', () => {
-  const userID = document.getElementById("emailLogIn").value;
-  const userPass = document.getElementById("passwordLogIn").value;
+  const userID = document.getElementById('emailLogIn').value;
+  const userPass = document.getElementById('passwordLogIn').value;
   emailLogin(userID, userPass);
 
-})
+});
 
-btnGoogle.addEventListener('click', googleSignIn)
+btnGoogle.addEventListener('click', googleSignIn);
 
 btnRegister.addEventListener('click', () => {
-  window.location.hash = '#register'  
-})
+  window.location.hash = '#register';
+});
 
 const registerView = () => {
   main.innerHTML = '';
@@ -40,20 +40,19 @@ const registerView = () => {
       <input id="passwordRegister2"class="inputText" type="password" placeholder="Confirma contraseña">
       <button id="signIn" class="btn">Registrate</button>
       </form>`;
-  
+
   const btnSignIn = document.getElementById('signIn');
 
-  btnSignIn.addEventListener('click', () =>{
+  btnSignIn.addEventListener('click', () => {
     const emailRegister = document.getElementById('emailRegister').value;
-    console.log(emailRegister)
+    console.log(emailRegister);
     const passRegister = document.getElementById('passwordRegister').value;
-    console.log(passRegister)
+    console.log(passRegister);
     register(emailRegister, passRegister);
-  })
-  
+  });
 };
 
-const homeView = () =>{
+const homeView = () => {
   root.innerHTML = '';
   root.innerHTML = `<header class="homeLogo">
     <h1><img src="img/logo-boceto.png" alt=""></h1>
@@ -114,18 +113,20 @@ const homeView = () =>{
           </li>
        </ul>
       </nav>
-    <main id="fullMain">     
-    </main>
-    <section id="newPostSection">
+      <section id="userPerfil">
     </section>
-    <button id="addPost" class="btnAdd"><a href="#addPost">°</a></button>`
-}
+    <main id="homeMain">  
+    </main>  
+    <section id="newPostSection"> 
+    </section>  
+    <button id="addPost" class="btnAdd"><a href="#addPost">°</a></button>`;
+};
 
 const myWorkasView = () => {
+  const sectionPerfil = document.getElementById('userPerfil');
   let newPostSection = document.getElementById('newPostSection');
-  newPostSection.innerHTML='';
-  sectionPerfil.innerHTML = 
-    `<div class="businessCard">
+  newPostSection.innerHTML = '';
+  sectionPerfil.innerHTML = `<div class="businessCard">
     <img src="img/photo-user-tester.png">
     <div class="idUser">
       <h3>Nombre Usuario / Seudónimo</h3>
@@ -137,36 +138,35 @@ const myWorkasView = () => {
       <p>Mi linkedin</p>
     </div>
     </div>`;
-}
+};
 const sectionAddPost = () => {
   let newPostSection = document.getElementById('newPostSection');
-  newPostSection.innerHTML =  
+  newPostSection.innerHTML =
   `<div id="allPost" class="post">
   <textarea class="basePost" id="textPost" cols="30" rows="10"></textarea>
   <div class="actionButtons">
     <input id="imgForUp" type="file" class="fileAdd">
     <button id="newPost" class="btn">Publicar</button>    
   </div>
-  </div>`
-  
+  </div>`;
+
   const btnFile = document.getElementById('imgForUp');
   const btnUpPost = document.getElementById('newPost');
 
   btnUpPost.addEventListener('click', () => {
-    const textValue = document.getElementById('textPost').value
+    const textValue = document.getElementById('textPost').value;
     const imgFile = btnFile.files[0];
     uploadImgAndText(imgFile, textValue);
-    
 
-  })
+  });
 
-}
+};
 const db = firebase.firestore();
 const showUpPost = () => {
-  const homeMain = document.getElementById('homeMain')
+  const homeMain = document.getElementById('homeMain');
   db.collection('Post').onSnapshot((querySnapshot) => {
-  homeMain.innerHTML = '';
-  querySnapshot.forEach((doc) => {
+    homeMain.innerHTML = '';
+    querySnapshot.forEach((doc) => {
       console.log(doc.data());
       homeMain.innerHTML +=
       `<div class="postDiv">
@@ -176,35 +176,35 @@ const showUpPost = () => {
       </div>
       <div id="oldComents" class="commentDiv"></div>
       <div id="newComents" class="commentDiv"></div>`;
-    // función para mostrar caja de comentarios
-    function showComment (){
-    console.log('mostrar')
-    }
-    let coment = Array.from(document.querySelectorAll('.commentDiv')).forEach((element) => {
-    element.addEventListener('click', () =>{
-    console.log(element);
-    divPost.innerHTML = '';
-      })
-    })
+      // función para mostrar caja de comentarios
+      function showComment() {
+        console.log('mostrar');
+      }
+      const coment = Array.from(document.querySelectorAll('.commentDiv')).forEach((element) => {
+        element.addEventListener('click', () => {
+          console.log(element);
+          divPost.innerHTML = '';
+        });
+      });
+    });
   });
-});
-}
+};
 
 window.addEventListener('hashchange', () => {
-  if(window.location.hash === '#home'){
-    homeView()
-    showUpPost()
+  if (window.location.hash === '#home') {
+    homeView();
+    showUpPost();
     
-  } if(window.location.hash === '#register'){
-    registerView()
+  } if (window.location.hash === '#register') {
+    registerView();
     
-  } if(window.location.hash === '#addPost'){
-    sectionAddPost()    
+  } if (window.location.hash === '#addPost') {
+    sectionAddPost();
     
-  } if(window.location.hash === '#myWorks'){
-    myWorkasView()
-    
-  } if(window.location.hash === '#favorite'){
-    
+  } if (window.location.hash === '#myWorks') {
+    myWorkasView();
+
+  } if (window.location.hash === '#favorite') {
+
   }
-})
+});
