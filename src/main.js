@@ -1,7 +1,7 @@
 // Este es el punto de entrada de tu aplicacion
 
 import {
-emailLogin, googleSignIn, register, observer, uploadImgAndText, 
+  emailLogin, googleSignIn, register, uploadImgAndText, saveComment,
 } from './app.js';
 
 window.onload = initialHash
@@ -58,7 +58,7 @@ const homeView = () =>{
   root.innerHTML = `<header class="homeLogo">
     <h1><img src="img/logo-boceto.png" alt=""></h1>
     </header>
-    <nav class="navBar">
+     <nav class="navBar">
         <ul id="mobileV">
           <li id="home">
             <a href="#home">
@@ -113,11 +113,10 @@ const homeView = () =>{
             </a>
           </li>
        </ul>
-      </nav>
+    </nav>
     <section id="userPerfil">
     </section>
     <main id="homeMain">
-         
     </main>
     <section id="newPostSection">
     </section>
@@ -126,10 +125,9 @@ const homeView = () =>{
 
 const myWorkasView = () => {
   const sectionPerfil = document.getElementById('userPerfil');
-  let newPostSection = document.getElementById('newPostSection');
-  newPostSection.innerHTML='';
-  sectionPerfil.innerHTML = 
-    `<div class="businessCard">
+  const newPostSection = document.getElementById('newPostSection');
+  newPostSection.innerHTML = '';
+  sectionPerfil.innerHTML = `<div class="businessCard">
     <img src="img/photo-user-tester.png">
     <div class="idUser">
       <h3>Nombre Usuario / Seudónimo</h3>
@@ -167,33 +165,41 @@ const sectionAddPost = () => {
 }
 const db = firebase.firestore();
 const showUpPost = () => {
-  const homeMain = document.getElementById('homeMain')
-  db.collection('Post').onSnapshot((querySnapshot) => {
-  homeMain.innerHTML = '';
-  querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-      console.log(doc.id)
-      homeMain.innerHTML +=
-      `<div class="postDiv">
+  const homeMain = document.getElementById('homeMain');
+  const postInOrder = db.collection('Post').orderBy('postTime', 'desc');
+  postInOrder.onSnapshot((querySnapshot) => {
+    homeMain.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      // console.log(doc.data());
+      homeMain.innerHTML += `<div class="postDiv">
       <div class="postArea"> ${doc.data().post}</div>
       <div> <img class="images" src=${doc.data().img}></div>
-      <button class="btn">Comentarios</button>
+      <button id="btnComment" class="btnShowComment">Comentarios</button>
       </div>
       <div id="oldComents" class="commentDiv"></div>
       <div id="newComents" class="commentDiv"></div>`;
-    // función para mostrar caja de comentarios
-    function showComment (){
-    console.log('mostrar')
-    }
-    let coment = Array.from(document.querySelectorAll('.commentDiv')).forEach((element) => {
-    element.addEventListener('click', () =>{
-    console.log(element);
-    divPost.innerHTML = '';
+      const idPost = doc.id;
+      const btnComments = Array.from(document.querySelectorAll('.btnShowComment'));
+      btnComments.forEach((element) => {
+        element.addEventListener('click', () => {
+          const newComment = document.getElementById('newComents');
+          newComment.innerHTML = `<textarea class="comment" id="textComment" cols="30" rows="10"></textarea>
+          <button id="upComment" class="btn">Comentar</button>`
+          const btnUpComment = document.getElementById('upComment');
+          btnUpComment.addEventListener('click', () => {
+            
+            const textComment = document.getElementById('textComment').value;
+            console.log(idPost);
+            console.log(textComment);
+            saveComment(idPost, textComment);
+          })
+        })
       })
-    })
+    });
   });
-});
-}
+};
+
+
 
 window.addEventListener('hashchange', () => {
   if(window.location.hash === '#home'){

@@ -26,37 +26,33 @@ body {
 }
 .homeLogo{
     padding: 20px 10px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     max-width: 96%;
     margin: auto;
     display: flex;
     flex-direction: column;
 }
-h1 img{
-    padding-top: 20px;
-    width: 450px;
-}
+
 nav ul li img{
-    display: block;
     display: flex;
     max-width: 25px;
     height: auto;
   }
 .homeLogo img{
-    margin-top: 50px;
+    margin: 30px;
     padding-bottom: 10px;
     width: 350px;
     float: left;
 }
 h1 img{
-    padding-top: 50px;
+    padding-top: 10%;
     max-width: 50%;
 }
 .navBar{
     background-color: #FFBF43;
     margin:auto;
-    width: 96%;
-    }
+    width: 91%;
+}
 .navBar ul{
     list-style: none;
     display: flex;
@@ -73,6 +69,7 @@ nav ul li:hover{
 }   
 nav li a{
     text-decoration: none;
+    color:black;
         
 }
 
@@ -132,12 +129,13 @@ main{
     text-decoration: none;
 }
 #idGoogle{
-    margin: 5px;
     background-color: transparent;
     border: solid 1px black;
-    max-width: 50%;
+    display: flex;
     height: 45px;
     border-radius: 10px;
+    padding: 20px;
+    margin-left: 5px;
 }
 
 .singIn{
@@ -154,6 +152,7 @@ main{
 .businessCard{
     width: 55%;
     margin: auto;
+    padding: 20px;
     border: solid 2px #4d1e03;
     background-color: antiquewhite;
     border-radius: 5px;
@@ -166,12 +165,16 @@ main{
     width: 150px;
     height: 150px;
 }
+
+#userPerfil{
+margin-top: 20px;
+}
+
 .idUser{
     padding-top: 50px;
     color: black;
 }
 .myPages{
-    display: block;
     margin: 3px;
 }
 .myPages p{
@@ -196,7 +199,7 @@ main{
     margin: auto;
 }
 .images{
-    max-width: 300px;
+    max-width: 70%;
     height: auto;
     border: solid black 2px;
 }
@@ -223,12 +226,7 @@ display: none;
 @media (max-width:700px) {
 
     /* Start Screen*/   
-    #root{
-        margin: auto;
-        border: 0;
-        background-size: cover;
-        padding: 0; 
-    }
+    
     h1 img{
         margin-top: 40px;
         margin-bottom: 0px;
@@ -236,18 +234,11 @@ display: none;
         max-width: 60%;
         float: center;
     }
-    .homeLogo img{
-        margin-top: 30px;
-        padding: 10px;
-        max-width: 40%;
-        float: left;
-    }
 
     .header{
         padding: 10px;
         margin: 5px 10px;
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
     }  
@@ -257,15 +248,6 @@ display: none;
         display: flex;
         align-items: center;
         flex-direction: column;
-
-    }
-    #idGoogle{
-        margin: 5px;
-        background-color: transparent;
-        border: solid 1px black;
-        max-width: 50%;
-        height: 45px;
-        border-radius: 10px;
     }
         
     .btn{
@@ -280,7 +262,7 @@ display: none;
     /* Second Screen */
 
     .homeLogo{
-        padding: 10px;
+        padding: 0;
         margin-bottom: 20px;
         max-width: 96%;
         margin: auto;
@@ -289,28 +271,21 @@ display: none;
     }
 
     .homeLogo img{
-        margin-top: 70px;
-        margin-left: 15px;
-        padding: 0px;
+        margin: 70px 30px 5px 20px;
+        padding: 0;
         max-width: 50%;
         float: left;
     }
     .navBar{
-        margin:20px 10px;
-        width: 94%;
-        margin-left: 20px;
-        border: black solid;
-        }
+        margin:22px;
+        width: 95%;
+    }
     nav li{
         text-align: center;
-        padding: 10px;
         flex-grow: 1;
-        border: red solid;
-        
     }    
 
     nav ul li img{
-        display: block;
         display: flex;
         max-width: 20px;
         height: auto;
@@ -332,7 +307,7 @@ display: none;
     }
 
     .images{
-        max-width: 15em;
+        width: 70%;
         height: auto;
         border: solid black 2px;
         
